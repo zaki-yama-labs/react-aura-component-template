@@ -1,5 +1,5 @@
 var path = require('path');
-var yourLibraryName = 'yourLibraryName';
+var libraryName = 'yourLibraryName';
 
 module.exports = {
   entry: './src/scripts/index.js',
@@ -19,7 +19,7 @@ module.exports = {
       },
       {
         test: require.resolve('./src/scripts/index'),
-        loaders: ['expose?' + yourLibraryName, 'babel-loader?presets[]=react,presets[]=es2015']
+        loaders: ['expose?' + libraryName, 'babel-loader?presets[]=react,presets[]=es2015']
       }
     ]
   },
