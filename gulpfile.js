@@ -41,7 +41,7 @@ var forceDeploy = function(username, password) {
         console.error(res);
         console.log('***************ERROR DETAILS***************');
         console.error(res.details.componentFailures);
-        return callback(new Error(res.details.componentFailures));
+        return callback(new Error('Deploy failed.'));
       }
       return callback();
     }, function(err) {
