@@ -35,6 +35,7 @@
     "gulp-replace": "^0.5.4",
     "gulp-zip": "^3.2.0",
     "jsforce": "^1.6.5",
+    "run-sequence": "^1.2.1",
     "through2": "^2.0.1",
     "webpack": "^1.13.1",
     "webpack-stream": "^3.2.0"

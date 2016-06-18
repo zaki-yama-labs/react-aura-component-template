@@ -9,6 +9,7 @@ var replace = require('gulp-replace');
 var through2 = require('through2');
 var jsforce = require('jsforce');
 var webpack = require('webpack-stream');
+var runSequence = require('run-sequence');
 
 env({
   file: '.env.json'
@@ -78,4 +79,6 @@ gulp.task('watch', function() {
   gulp.watch('pkg/**/*', ['deploy']);
 });
 
-gulp.task('default', ['build', 'deploy']);
+gulp.task('default', function(callback) {
+  runSequence('build', 'deploy', callback)
+});
