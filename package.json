@@ -36,6 +36,7 @@
     "gulp-zip": "^3.2.0",
     "jsforce": "^1.6.5",
     "through2": "^2.0.1",
-    "webpack": "^1.13.1"
+    "webpack": "^1.13.1",
+    "webpack-stream": "^3.2.0"
   }
 }
