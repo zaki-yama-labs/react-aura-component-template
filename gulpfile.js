@@ -55,9 +55,6 @@ gulp.task('build', function() {
   .pipe(gulp.dest('./pkg/staticresources'));
 });
 
-gulp.task('build:webpack', function() {
-});
-
 gulp.task('deploy', function() {
   var ts = Date.now();  // Timestamp
   return gulp.src('pkg/**/*', {
