@@ -8,6 +8,7 @@ var gulpif = require('gulp-if');
 var replace = require('gulp-replace');
 var through2 = require('through2');
 var jsforce = require('jsforce');
+var webpack = require('webpack-stream');
 
 env({
   file: '.env.json'
@@ -49,10 +50,16 @@ var forceDeploy = function(username, password) {
   });
 };
 
-gulp.task('build', function() {
+gulp.task('build', ['webpack'], function() {
   return gulp.src('./build/**/*')
   .pipe(zip(componentName + '.resource'))
   .pipe(gulp.dest('./pkg/staticresources'));
+});
+
+gulp.task('webpack', function() {
+  return gulp.src('./src/scripts/index.js')
+  .pipe(webpack(require('./webpack.config.js')))
+  .pipe(gulp.dest('./build/'));
 });
 
 gulp.task('deploy', function() {
