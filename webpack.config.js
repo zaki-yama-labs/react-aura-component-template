@@ -1,30 +1,39 @@
-var path = require('path');
-var libraryName = 'yourLibraryName';
+var webpack = require('webpack');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var libraryName = 'hereIsYourLibraryName';
 
 module.exports = {
-  entry: './src/scripts/index.js',
-  output: {
-    path: path.resolve('build'),
-    filename: 'bundle.js',
-    pathinfo: false
+  context: __dirname,
+  entry: {
+    javascript: './src/scripts/index.js'
   },
+
+  output: {
+    path: __dirname + '/build',
+    filename: 'bundle.js'
+  },
+  devtool: 'source-map',
   module: {
     loaders: [
       {
         test: /\.js$/,
+        exclude: /node_modules/,
         loader: 'babel-loader',
-        query: {
-          presets: ['es2015', 'react']
+        query:{
+          presets: ['react', 'es2015']
         }
       },
       {
         test: require.resolve('./src/scripts/index'),
         loaders: ['expose?' + libraryName, 'babel-loader?presets[]=react,presets[]=es2015']
+      },
+      {
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader')
       }
     ]
   },
-  stats: {
-    colors: true
-  },
-  devtool: 'source-map'
+  plugins: [
+    new ExtractTextPlugin('index.css')
+  ]
 };
