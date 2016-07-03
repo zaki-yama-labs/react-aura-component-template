@@ -11,7 +11,7 @@ This template automates the following things:
 
 ### Installation
 
-You need to rename `.env.json.sample` to `.env.json` and input your SF credentials.  
+First you need to rename `.env.json.sample` to `.env.json` and input your Salesforce org credentials.  
 Then run following command.
 
 ```zsh
