@@ -2,6 +2,7 @@
 
 .env.json
 
+*.resource
 build
 node_modules
 bower_components
