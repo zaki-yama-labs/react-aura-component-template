@@ -21,7 +21,8 @@
   "dependencies": {
     "@salesforce-ux/design-system": "^0.12.2",
     "react": "^15.1.0",
-    "react-dom": "^15.1.0"
+    "react-dom": "^15.1.0",
+    "react-lightning-design-system": "^1.3.0"
   },
   "devDependencies": {
     "babel-core": "^6.9.1",
