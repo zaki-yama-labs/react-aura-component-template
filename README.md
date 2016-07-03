@@ -1,6 +1,8 @@
 React Lightning Component Template
 ----------------------------------
 
+(For Japanese, please see [README.jp.md](README.jp.md))
+
 A template for developing Lightning Component with React.  
 This template automates the following things:
 
