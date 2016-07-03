@@ -1,0 +1,8 @@
+<aura:component implements="flexipage:availableForAllPageTypes">
+  <ltng:require
+    scripts="/resource/HereIsYourComponentName/bundle.js?__NOCACHE__"
+    styles="/resource/HereIsYourComponentName/index.css?__NOCACHE__"
+    afterScriptsLoaded="{!c.doInit}"/>
+
+  <div aura:id="root"/>
+</aura:component>
