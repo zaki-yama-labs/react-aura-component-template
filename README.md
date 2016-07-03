@@ -25,7 +25,6 @@ $ gulp
 
 - `gulpfile.js` の `componentName`
 - `pkg/aura` および `pkg/staticresources` 以下のディレクトリ＆ファイル名
-- `pkg/staticresources/.gitignore` 内
 - `pkg/aura/PreviewApp/PreviewApp.app` 内
 - `pkg/aura/HereIsYourComponentName/HereIsYourComponentName.cmp` 内のJS＆CSSロード部分
 
