@@ -1,3 +1,3 @@
 <aura:application>
-  <c:HereIsYourComponentName />
+  <c:ContactSearch />
 </aura:application>
