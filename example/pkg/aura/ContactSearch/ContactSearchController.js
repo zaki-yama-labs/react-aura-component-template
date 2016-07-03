@@ -11,6 +11,6 @@
       })
     };
     var root = component.find('root').getElement();
-    hereIsYourLibraryName.init(root, dataService);
+    contactSearch.init(root, dataService);
   }
 })
