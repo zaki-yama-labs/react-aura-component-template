@@ -1,4 +1,4 @@
-<aura:component implements="flexipage:availableForAllPageTypes">
+<aura:component controller="ContactController"  implements="flexipage:availableForAllPageTypes">
   <ltng:require
     scripts="/resource/ContactSearch/bundle.js?__NOCACHE__"
     styles="/resource/ContactSearch/index.css?__NOCACHE__"
