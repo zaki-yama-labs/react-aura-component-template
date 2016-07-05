@@ -48,3 +48,7 @@ Please rename the following:
 
 - `libraryName` variable in `webpack.config.js`
 - Inside `pkg/aura/HereIsYourComponentName/HereIsYourComponentNameController.js` (Where calling `init` method)
+
+### License
+
+MIT
