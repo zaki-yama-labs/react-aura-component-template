@@ -3,17 +3,16 @@ var componentName = 'HereIsYourComponentName';
 var gulp = require('gulp');
 var zip = require('gulp-zip');
 var notify = require('gulp-notify');
-var env = require('gulp-env');
+var env = require('node-env-file');
 var gulpif = require('gulp-if');
 var replace = require('gulp-replace');
 var through2 = require('through2');
 var jsforce = require('jsforce');
 var webpack = require('webpack-stream');
 var runSequence = require('run-sequence');
+var forceDeploy = require('gulp-jsforce-deploy');
 
-env({
-  file: '.env.json'
-});
+env('.env');
 
 // ref. https://github.com/vigetlabs/gulp-starter/blob/master/gulpfile.js/lib/handleErrors.js
 var handleErrors = function(err, callback) {
@@ -27,29 +26,6 @@ var handleErrors = function(err, callback) {
   }
 }
 
-var forceDeploy = function(username, password) {
-  return through2.obj(function(file, enc, callback) {
-    var conn;
-    conn = new jsforce.Connection();
-    return conn.login(username, password).then(function() {
-      return conn.metadata.deploy(file.contents).complete({
-        details: true
-      });
-    })
-    .then(function(res) {
-      if (res.details !== null && !res.success){
-        console.error(res);
-        console.log('***************ERROR DETAILS***************');
-        console.error(res.details.componentFailures);
-        return callback(new Error('Deploy failed.'));
-      }
-      return callback();
-    }, function(err) {
-      console.error(err);
-      return callback(err);
-    });
-  });
-};
 
 gulp.task('build', ['webpack'], function() {
   return gulp.src('./build/**/*')
@@ -70,7 +46,11 @@ gulp.task('deploy', function() {
   })
   .pipe(gulpif('**/*.cmp', replace(/__NOCACHE__/g, ts)))
   .pipe(zip('pkg.zip'))
-  .pipe(forceDeploy(process.env.SF_USERNAME, process.env.SF_PASSWORD))
+  .pipe(forceDeploy({
+    username: process.env.SF_USERNAME,
+    password: process.env.SF_PASSWORD,
+    pollTimeout: 600 * 1000
+  }))
   .on('error', handleErrors);
 });
 
