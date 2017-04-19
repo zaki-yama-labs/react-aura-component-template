@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zaki-yama/react-lightning-compont-template.git"
+    "url": "git+https://github.com/zaki-yama/react-lightning-component-template.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/zaki-yama/react-lightning-compont-template/issues"
+    "url": "https://github.com/zaki-yama/react-lightning-component-template/issues"
   },
-  "homepage": "https://github.com/zaki-yama/react-lightning-compont-template#readme",
+  "homepage": "https://github.com/zaki-yama/react-lightning-component-template#readme",
   "dependencies": {
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
