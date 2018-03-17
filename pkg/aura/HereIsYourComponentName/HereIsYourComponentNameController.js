@@ -11,6 +11,6 @@
       })
     };
     var root = component.find('root').getElement();
-    hereIsYourLibraryName.init(root, dataService);
+    window.App.init(root, dataService);
   }
 })

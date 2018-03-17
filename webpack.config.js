@@ -1,6 +1,5 @@
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var libraryName = 'hereIsYourLibraryName';
 
 module.exports = {
   context: __dirname,
@@ -10,26 +9,27 @@ module.exports = {
 
   output: {
     path: __dirname + '/build',
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    library: 'App',
+    libraryTarget: 'umd',
   },
   devtool: 'source-map',
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
-        query:{
-          presets: ['react', 'es2015']
-        }
-      },
-      {
-        test: require.resolve('./src/scripts/index'),
-        loaders: ['expose?' + libraryName, 'babel-loader?presets[]=react,presets[]=es2015']
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader')
+        loader: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            'css-loader',
+            'sass-loader'
+          ],
+        }),
       }
     ]
   },
