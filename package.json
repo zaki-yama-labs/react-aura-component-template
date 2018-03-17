@@ -19,8 +19,8 @@
   },
   "homepage": "https://github.com/zaki-yama/react-lightning-component-template#readme",
   "dependencies": {
-    "react": "^15.3.2",
-    "react-dom": "^15.3.2",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
     "react-lightning-design-system": "^2.0.2"
   },
   "devDependencies": {
